@@ -1,4 +1,5 @@
 # XXX no versioning of the docker image
+IMAGE_NAME=planitar/base
 
 ifneq ($(NOCACHE),)
   NOCACHEFLAG=--no-cache
@@ -7,12 +8,12 @@ endif
 .PHONY: build push clean test
 
 build:
-	docker build ${NOCACHEFLAG} -t planitar/base .
+	docker build ${NOCACHEFLAG} -t ${IMAGE_NAME} .
 
 push:
-	docker push planitar/base
+	docker push ${IMAGE_NAME}
 
 clean:
-	docker rmi -f planitar/base || true
+	docker rmi -f ${IMAGE_NAME} || true
 
 test:
