@@ -22,3 +22,4 @@ clean:
 	docker rmi -f ${IMAGE_NAME} || true
 
 test:
+	IMAGE_NAME=${IMAGE_NAME} ./test.sh
