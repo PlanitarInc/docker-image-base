@@ -34,4 +34,6 @@ RUN gpg --keyserver pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4
     rm /usr/local/bin/gosu.asc && \
     chmod +sx /usr/local/bin/gosu
 
+# Use tini by default
+ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["/bin/bash"]
